@@ -3,12 +3,11 @@ import 'package:my_grocery/const.dart';
 
 class RemotePopularProductService {
   var client = http.Client();
-  var remoteUrl = '$baseUrl/api/popular-products';
+  var remoteUrl = '$baseUrl/consulta/';
 
   Future<dynamic> get() async {
-    var response = await client.get(
-      Uri.parse('$remoteUrl?populate=product,product.images')
-    );
+    var response = await client
+        .get(Uri.parse('$remoteUrl?populate=product,product.images'));
     return response;
   }
 }
